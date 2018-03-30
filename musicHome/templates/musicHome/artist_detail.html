@@ -1,0 +1,40 @@
+{% extends "musicHome/base.html" %}
+{% load staticfiles %}
+    {% block body %}
+        <div id="page-wrapper">
+            <div class="inner-content">
+
+            <div class="tittle-head">
+                    <div class="col-md-3 content-grid">
+                    <a class="play-icon " href="{% url "artist_detail"  artist.id %}"><img src="{{artist.image.url }}" title="{{ artist.name }}"></a>
+                </div>
+                    <div class="col-md-3">
+                    <table class="table">
+                        <tr class="row">
+                            <td >
+                                <h3 class="tittle"><span class="new">Artist name: {{ artist.name}}</span></h3>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+                    <div class="clearfix"> </div>
+                </div>
+
+
+                <div class="albums">
+                    <div class="tittle-head ">
+                        <h3 class="tittle">Albums  <span class="new">by {{ artist.name }}</span></h3>
+                        <div class="clearfix"> </div>
+                    </div>
+                {% for album in albums %}
+                     <div class="col-md-3 artist-grid " >
+                        <a class="play-icon " href="{% url "album_detail"  album.id %}"><img src="{{ album.album_logo.url }}" title="{{ album.title }}"></a>
+                        <a class="button play-icon " href="{% url "album_detail"  album.id %}">{{ album.title }}</a>
+                    </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+    {% endblock %}

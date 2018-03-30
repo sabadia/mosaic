@@ -1,0 +1,82 @@
+{% extends "musicHome/base.html" %}
+    {% load staticfiles %}
+        {% block body %}
+            <meta charset="utf-8" />
+
+     <!-- Preload -->
+
+            <div id="page-wrapper">
+				<div class="inner-content">
+                <div class="grid">
+                        <div class="music-left">
+                            <video controls crossorigin playsinline autoplay id="player" style="width: 100%">
+                <!-- Video files -->
+                                <source src="{{ song.file.url }}" type="video/mp4">
+                                <source src="{{ song.file.url }}" type="video/webm">
+
+                                <!-- Text track file -->
+
+                                <!-- Fallback for browsers that don't support the <video> element -->
+                                <a href="{{ song.file.url }}" download>Download</a>
+                            </video>
+
+                        </div>
+
+
+
+
+                           <div class="music-right">
+								<!--/video-main-->
+								 <div class="video-main">
+									<div class="video-record-list">
+										<div class="jp-type-playlist">
+
+												<div class="jp-playlist">
+													<ul style="display: block;">
+                                                        {% for s in songs %}
+                                                        <li class="jp-playlist" style="color: hotpink;">
+                                                            <div>
+                                                                <a href="{% url "song_detail" album.id s.id %}" class="jp-playlist-item-remove" style="display: none;">×</a>
+                                                                <a href="{% url "song_detail" album.id s.id %}" class="jp-playlist-item" >{{ forloop.counter}} . {{ s.title }}<span class="jp-artist">  by {{ s.album.artist.name }}</span></a>
+                                                            </div>
+                                                        {% endfor %}
+
+                                                    </ul>
+												</div>
+												<div class="jp-no-solution" style="display: none;">
+													<span>Update Required</span>
+													To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- script for play-list -->
+				<link href="{% static "musicHome/css/jplayer.blue.monday.min.css" %}" rel="stylesheet" type="text/css">
+				<script type="text/javascript" src="{% static "musicHome/js/jquery.jplayer.min.js" %}"></script>
+				<script type="text/javascript" src="{% static "musicHome/js/jplayer.playlist.min.js" %}"></script>
+
+
+
+											</div>
+
+											<div class="clearfix"></div>
+
+
+                        <div class="clearfix"></div>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        <br>
+
+
+
+
+
+        {% endblock %}

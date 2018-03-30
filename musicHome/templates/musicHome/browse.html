@@ -1,0 +1,54 @@
+{% extends "musicHome/base.html" %}
+    {% load staticfiles %}
+        {% block body %}
+			<div id="page-wrapper">
+				<div class="inner-content">
+				      <div class="music-browse">
+					<!--albums-->
+					<!-- pop-up-box --> 
+							<link href="{% static "musicHome/css/popuo-box.css" %}" rel="stylesheet" type="text/css" media="all">
+							<script src="{% static "musicHome/js/jquery.magnific-popup.js" %}" type="text/javascript"></script>
+							 <script>
+									$(document).ready(function() {
+									$('.popup-with-zoom-anim').magnificPopup({
+										type: 'inline',
+										fixedContentPos: false,
+										fixedBgPos: true,
+										overflowY: 'auto',
+										closeBtnInside: true,
+										preloader: false,
+										midClick: true,
+										removalDelay: 300,
+										mainClass: 'my-mfp-zoom-in'
+									});
+									});
+							</script>		
+					<!--//pop-up-box -->
+					
+						<div class="browse">
+								<div class="tittle-head two">
+									<h3 class="tittle"> <span class="new">All albums</span></h3>
+									<div class="clearfix"> </div>
+								</div>
+                            {% for album in albums %}
+								<div class="col-md-3 browse-grid">
+									<a  href="{% url "album_detail"  album.id %}"><img src="{{ album.album_logo.url }}" title="{{ album.title }}"></a>
+									 <a href="{% url "album_detail"  album.id %}"><i class="glyphicon glyphicon-play-circle"></i></a>
+                                    <a class="button play-icon " href="{% url "album_detail"  album.id %}">{{ album.title }}</a>
+
+								</div>
+							{% endfor %}
+											<div class="clearfix"> </div>
+									</div>
+					<!--//End-albums-->
+						<!--//discover-view-->
+							<!--//music-left-->
+							</div>
+							
+						<!--body wrapper start-->
+								</div>
+							<div class="clearfix"></div>
+						<!--body wrapper end-->
+ 	 <!-- /w3l-agile-info -->
+					</div>
+        {% endblock %}

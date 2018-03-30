@@ -1,0 +1,57 @@
+{% extends "musicHome/base.html" %}
+{% load staticfiles %}
+    {% block body %}
+        <div id="page-wrapper">
+            <div class="inner-content">
+                <div class="tittle-head">
+                    <div class="col-md-3 content-grid">
+                    <a class="play-icon " href="{% url "album_detail"  album.id %}"><img src="{{ album.album_logo.url }}" title="{{ album.title }}"></a>
+                </div>
+                    <div class="col-md-3">
+                    <table class="table">
+                        <tr class="row">
+                            <td >
+                                <h3 class="tittle"><span class="new">{{ album.title }}</span></h3>
+                            </td>
+                        </tr>
+                        <tr class="row">
+                            <td >
+                                <h4 class="date-icon">Release year: {{ album.year }}</h4>
+                            </td>
+                        </tr>
+                        <tr class="row">
+                            <td >
+                                <h4 class="name">Artist name: <a class="btn btn-info" href="{% url "artist_detail" artist.id %}">{{ artist.name }}</a></h4>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                    <div class="clearfix"> </div>
+                </div>
+            <div class="cm-hr"></div>
+            <div class="title"><h2 >Songs</h2> </div>
+
+                <div class="music-left">
+                    {% for song in songs %}
+                        <div class="col-md-4 content-grid">
+                            <a class="play-icon " href="{% url "song_detail" album.id song.id %}"><img src="{{ song.song_logo.url }}" title="{{ song.title }}"></a>
+                            <a class="button play-icon " href="{% url "song_detail" album.id song.id %}">{{ song.title }}</a>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="music-right">
+                    <div class="apps">
+                        <h3 class="hd-tittle">Mosaic now available in</h3>
+                        <div class="banner-button">
+                            <a href="#"><img src="{% static "musicHome/images/1.png" %}" alt=""></a>
+                        </div>
+                        <div class="banner-button green-button">
+                            <a href="#"><img src="{% static "musicHome/images/2.png"  %}" alt=""></a>
+                        </div>
+                            <div class="clearfix"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    {% endblock %}

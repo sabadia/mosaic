@@ -25,7 +25,8 @@
     <script src="{% static "musicHome/js/jquery-2.1.4.js" %}"></script>
 
 
-
+    {% block head %}
+    {% endblock %}
 
 
 
@@ -84,15 +85,16 @@
                       </ul>
                       <ul class="nav navbar-nav navbar-right">
 
-                          <form class="navbar-form navbar-left" role="search">
+                          <form class="navbar-form navbar-left" role="search" method="get" action="{% url 'search' %}">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Search">
+                                    <input type="text" class="form-control" placeholder="Search" name="search", value="{{ request.GET.search }}">
                                 </div>
                                 <button type="submit" class="btn btn-default">
                                     <span class="glyphicon glyphicon-search"></span>
                                 </button>
                           </form>
-                          <li><a href="#">login</a></li>
+                          <li><a href="#">{{ username }}</a></li>
+                          <li><a href="{% url "logout" %}">{{ log }}</a></li>
                          </ul>
 
                     </div>

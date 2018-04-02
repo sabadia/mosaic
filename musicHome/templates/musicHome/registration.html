@@ -1,32 +1,39 @@
-{% extends "musicHome/base.html" %}
-    {% load staticfiles %}
-    {% block head %}
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="keywords" content="Music School Registration Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"
-        />
-        <script type="application/x-javascript">
-            addEventListener("load", function () {
-                setTimeout(hideURLbar, 0);
-            }, false);
 
-            function hideURLbar() {
-                window.scrollTo(0, 1);
+    {% load staticfiles %}
+    <head>
+    <link href='{%static "musicHome/css/bootstrap.css"  %}' rel='stylesheet' type='text/css' />
+    <style>
+        body {
+                background-image: url("{% static "musicHome/images/guitar-background-1600x1066.png" %}");
             }
-        </script>
-        <!-- fonts -->
-        <!-- css -->
-        <link href="{% static "musicHome/css/style_reg.css" %}" rel="stylesheet" type='text/css' media="all" />
-        <!-- /css -->
-    {% endblock %}
-    {% block body %}
+        input{
+            border-radius: 5px;
+            padding-left: 7px;
+            }
+        .header{
+            padding-left: 10%;
+            color: #204d74;
+        }
+        label{
+            color: white;
+        }
+    </style>
+</head>
+    <body>
         <div id="page-wrapper">
-				<div class="inner-content">
-               <div class="row">
-        <div class="col-sm-12 col-md-6">
-            <div class="panel panel-default">
+        <div class="header">
+                        <h1 style="font-weight: bold;">
+                            MEUSIC
+                        </h1>
+                        <h4 style="padding-left: 3%">
+                            Feel The Sound ... .
+                        </h4>
+                    </div>
+				<div class="container inner-content">
+               <div class="row" style="padding-left: 57%">
+
                 <div class="panel-body">
-                    <h3>Register for an Account</h3>
+                    <h3 style="color: white; font-weight: bold">Register for an Account</h3>
                     {% if error_message %}
                         <p><strong>{{ error_message }}</strong></p>
                     {% endif %}
@@ -40,13 +47,12 @@
                         </div>
                     </form>
                 </div>
-                <div class="panel-footer">
-                    Already have an account? <a href="{% url 'login' %}">Click here</a> to log in.
+                <div class="panel-footer" style="background-color: transparent">
+                    <span style="color: white">Already have an account? <button class="btn btn-info"><a href="{% url 'login' %}">Click here</a></button> to log in.</span>
                 </div>
-            </div>
-        </div>
+
     </div>
                 </div>
         </div>
 
-    {% endblock %}
+    </body>

@@ -1,47 +1,70 @@
-{% extends "musicHome/base.html" %}
+
 {% load staticfiles %}
+<head>
+    <link href='{%static "musicHome/css/bootstrap.css"  %}' rel='stylesheet' type='text/css' />
+    <style>
+        body {
+                background-image: url("{% static "musicHome/images/1.jpg" %}");
+            }
+        input{
+            border-radius: 5px;
+            padding-left: 7px;
 
-    {% block body %}
-
+            }
+        .header{
+            padding-left: 10%;
+            color: #204d74;
+        }
+    </style>
+</head>
+<body>
         <div id="page-wrapper">
-				<div class="inner-content">
+        <div class="header">
+                        <h1 >
+                            MEUSIC
+                        </h1>
+                        <h4 style="padding-left: 3%">
+                            Feel The Sound ... .
+                        </h4>
+                    </div>
+				<div class="container inner-content" style="padding-top:5%; padding-left: 57%;" >
 
                     <div class="row">
 
-                    <h3>Log In</h3>
+                    <h3 style="color: white">Log In</h3>
                     {% if error_message %}
                         <p><strong>{{ error_message }}</strong></p>
                     {% endif %}
                     <form class="form-horizontal" role="form" action="{% url 'login'%}" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="form-group">
-                            <label class="control-label col-sm-2" for="id_username">
+                            <label class="control-label col-sm-3" for="id_username" style="color: white">
                                 Username:
                             </label>
-                            <div class="col-sm-10">
-                                <input id="id_username" maxlength="30" name="username" type="text">
+                            <div class="col-sm-0">
+                                <input id="id_username" maxlength="30" name="username" type="text"  >
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-2" for="id_password">
+                            <label class="control-label col-sm-3" for="id_password" style="color: white">
                                 Password:
                             </label>
-                            <div class="col-sm-10">
+                            <div class="col-sm-0">
                                 <input id="id_password" maxlength="30" name="password" type="password">
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
+                            <div class="col-sm-offset-3 col-sm-10">
                                 <button type="submit" class="btn btn-success">Submit</button>
                             </div>
                         </div>
                     </form>
                 </div>
-                <div class="panel-footer">
-                    Don't have an account? <a href="{% url 'register' %}">Click here</a> to register.
+                <div class="panel-footer" style="background-color: transparent">
+                    <span style="color: white">Don't have an account? <button class="btn btn-info"><a href="{% url 'register' %}"> Click here</a></button>  to register.</span>
                 </div>
-            
+
 
                 </div>
         </div>
-    {% endblock %}
+</body>

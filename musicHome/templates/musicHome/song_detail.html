@@ -19,6 +19,14 @@
                                 <!-- Fallback for browsers that don't support the <video> element -->
                                 <a href="{{ song.file.url }}" download>Download</a>
                             </video>
+                            <form action="{% url "delete_song" album.id song.id %}" method="post" style="display: inline;">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="song_id" value="{{ song.id }}" />
+                                        <button type="submit" class="btn btn-danger btn-xs">
+                                            <span class="glyphicon glyphicon-remove"></span>&nbsp; Delete
+                                        </button>
+                                    </form>
+                            <a href="{% url "add_to_favorite" song.album.id song.id %}" class="btn-favorite btn btn-success">{% if not f %}Add to favourite <span class="glyphicon glyphicon-star ">{% endif %}</span>{% if f %}remove from favourite <span class="glyphicon glyphicon-star ">{% endif %}</a>
 
                         </div>
 

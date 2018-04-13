@@ -79,7 +79,7 @@
 								</div>
                             {% for i, album in albums %}
 
-                                <div class="col-md-3 content-grid">
+                                <div class="col-md-3 content-grid" style="width: 40%;">
                                     <a class="play-icon " href="{% url "album_detail"  album.id %}"><img src="{{ album.album_logo.url }}" title="{{ album.title }}"></a>
                                     <a class="button play-icon " href="{% url "album_detail"  album.id %}">{{ album.title }}</a>
                                 </div>
@@ -90,22 +90,21 @@
 							</div>
 
 						   <div class="music-right">
+                           {% if sr %}
+                            <div class="header"><h3>you may also like</h3></div>
+                            {% endif %}
+                               {% for s in sr %}
 
-									  <div class="apps">
-												<h3 class="hd-tittle">Mosaic now available in</h3>
-												<div class="banner-button">
-													<a href="#"><img src="{% static "musicHome/images/1.png" %}" alt=""></a>
-												</div>
-												<div class="banner-button green-button">
-													<a href="#"><img src="{% static "musicHome/images/2.png"  %}" alt=""></a>
-												</div>
-													<div class="clearfix"></div>
-										</div>
-								  <!--//app_store-->
-						         <!--/start-paricing-tables-->
+                                <div class="col-md-3 content-grid" style="width: 100%">
+                                    <a class="play-icon " href="{% url "song_detail"  s.album.id s.id %}"><img src="{{ s.song_logo.url }}" title="{{ s.title }}" ></a>
+                                    <a class="button play-icon " href="{%  url "song_detail"  s.album.id s.id %}">{{ s.title }}</a>
+                                    <br>
+                                </div>
+							{% endfor %}
+
 
 											</div>
-													 <!--//music-right-->
+
 											<div class="clearfix"></div>
 			 	 <!-- /w3l-agile-its -->
 										</div>

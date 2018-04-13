@@ -2,10 +2,12 @@
 {% load staticfiles %}
     {% block body %}
         <div id="page-wrapper">
+        <div class="music-left">
             <div class="inner-content">
 
             <div class="tittle-head">
                     <div class="col-md-3 content-grid">
+
                     <a class="play-icon " href="{% url "artist_detail"  artist.id %}"><img src="{{artist.image.url }}" title="{{ artist.name }}"></a>
                 </div>
                     <div class="col-md-3">
@@ -36,5 +38,13 @@
 
             </div>
 
+        </div>
+        </div>
+        <div class="music-right">
+            <div class="header"><h2>details</h2></div>
+
+            <div class="detail">
+                <p>{{ artist.detail }}</p>
+            </div>
         </div>
     {% endblock %}

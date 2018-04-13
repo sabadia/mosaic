@@ -1,0 +1,20 @@
+{% extends "musicHome/base.html" %}
+{% load staticfiles %}
+    {% block body %}
+         <div id="page-wrapper">
+            <div class="inner-content">
+                <div class="browse">
+
+                        {% for f in fav %}
+
+                            <div class="col-md-3 artist-grid">
+                                <a class="play-icon " href="{% url "song_detail" f.song.album.id f.song.id %}"><img src="{{ f.song.song_logo.url }}" title="{{ f.song.title }}"></a>
+                                <a class="button play-icon " href="{% url "song_detail" f.song.album.id f.song.id %}">{{ f.song.title }}</a>
+                            </div>
+
+                        {% endfor %}
+
+                </div>
+            </div>
+         </div>
+    {% endblock %}

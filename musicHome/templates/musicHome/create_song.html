@@ -1,0 +1,51 @@
+{% extends 'musicHome/base.html' %}
+{% load staticfiles %}
+
+{% block body %}
+    <div id="page-wrapper">
+        <div class="inner-content">
+<div class="container-fluid">
+
+    <div class="row">
+
+
+
+        <!-- Right Song Info -->
+        <div class="col-sm-8 col-md-9">
+
+
+                    <h3>Add a New Song</h3>
+
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+
+                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="col-sm-offset-3 col-sm-10">
+                        <p>
+                        Create a new album
+                        <a  href="{% url "create_album" %}"><button type="button" class="btn btn-default btn-sm">
+                          <span class="glyphicon glyphicon-plus-sign"></span> add album
+                        </button></a>
+                    </p>
+                        </div>
+                        {% include 'musicHome/form_template.html' %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+
+
+        </div>
+
+    </div>
+
+</div>
+        </div>
+    </div>
+
+{% endblock %}
+

@@ -5,7 +5,6 @@
     {% load staticfiles %}
 
     <link rel="stylesheet" href="{% static "musicHome/css/normalize.min.css" %}">
-    <link rel="stylesheet" href="{% static "musicHome/css/mediaelementplayer.min.css" %}">
     <link rel="shortcut icon" href="{% static "musicHome/media/website_logo/favicon.ico" %}" type="image/x-icon">
     <link rel="icon" href="{% static "musicHome/media/website_logo/favicon.ico" %}" type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -82,6 +81,10 @@
                         <li {% if request.path == "/albums/" %}class="active"{% endif %}><a href="{% url "browse" %}">albums</a></li>
                         <li {% if request.path == "/artists/" %}class="active"{% endif %}><a href="{% url "radio" %}">artists</a></li>
                         <li {% if request.path == "/songs/" %}class="active"{% endif %}><a href="{% url "songs" %}">songs</a></li>
+                        <li {% if request.path == "/create_song/" %}class="active"{% endif %}><a href="{% url "create_song" %}"><span class="glyphicon glyphicon-plus-sign"></span> add song</a></li>
+                        <li {% if request.path == "/favourite/" %}class="active"{% endif %}><a href="{% url "favourite" %}"><span class="glyphicon fa fa-heart-o"></span> favourite</a></li>
+
+
                       </ul>
                       <ul class="nav navbar-nav navbar-right">
 

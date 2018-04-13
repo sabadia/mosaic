@@ -5,6 +5,7 @@
 				<div class="inner-content">
 
                     {% if songs %}
+
                         <div class="browse">
 								<div class="tittle-head two">
 									<h3 class="tittle"> <span class="new">songs</span></h3>
@@ -16,9 +17,11 @@
                                 <a class="button play-icon " href="{% url "song_detail" song.album.id song.id %}">{{ song.title }}</a>
                             </div>
                         {% endfor %}
-
+                        <div class="clearfix"> </div>
+                        </div>
                     {% endif %}
                     {% if albums %}
+
                     <div class="browse">
 								<div class="tittle-head two">
 									<h3 class="tittle"> <span class="new">albums</span></h3>
@@ -32,11 +35,13 @@
 
 								</div>
 							{% endfor %}
+                    <br>
 											<div class="clearfix"> </div>
 									</div>
                 {% endif %}
 
                 {% if artists %}
+
                     <div class="browse">
 								<div class="tittle-head two">
 									<h3 class="tittle"><span class="new">Artists </span></h3>
